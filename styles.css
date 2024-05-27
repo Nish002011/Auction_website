@@ -1,0 +1,176 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    animation: colorChange 5s infinite;
+}
+#heading {
+    background-image: url('https://pragativadi.com/wp-content/uploads/2024/04/ICC.png');
+    background-size: contain; /* Adjusted */
+    background-position: right center; /* Adjusted */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    color: white; /* Text color */
+    padding: 50px; /* Adjust padding as needed */
+    text-align: center;
+}
+.participant-name {
+    font-weight: bold;
+    text-decoration: underline;
+    /* Add shiny effect */
+    color: #000; /* Changed to black */
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff0, 0 0 15px #f0f, 0 0 20px #f00, 0 0 25px #f0f, 0 0 30px #ff0, 0 0 35px #f0f;
+}
+
+
+@keyframes colorChange {
+    0% { color: red; }
+    25% { color: orange; }
+    50% { color: green; }
+    75% { color: blue; }
+    100% { color: purple; }
+}
+
+#setup {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#setup label, #setup input, #setup button {
+    font-size: 1.2em;
+    margin: 0 5px;
+}
+
+#participantNames {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#participantNames input {
+    font-size: 1em;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+#participantNames button {
+    font-size: 1.2em;
+    padding: 5px 10px;
+}
+
+#tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tab {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    width: calc(33.333% - 40px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: #f9f9f9;
+}
+
+.tab h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+}
+
+.player-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.player-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.add-player-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.add-player-form input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-player-form select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-player-form button {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+}
+
+.add-player-form button:hover {
+    background-color: #218838;
+}
+
+.category {
+    margin-top: 20px;
+}
+
+.category h3 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #555;
+}
+
+.total-amount {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #444;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+#saveButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+#saveButton:hover {
+    background-color: #0056b3;
+}

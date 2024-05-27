@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T20 World Cup Mega Auction 2024</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Start New Auction Button -->
+    <button id="newAuctionButton" onclick="startNewAuction()">Start New Auction</button>
+
+    <!-- Auction Setup Section -->
+    <h1 id="heading">T20 World Cup Mega Auction 2024</h1>
+    <div id="setup">
+        <label for="numParticipants">Number of Participants:</label>
+        <input type="number" id="numParticipants" min="1" max="10">
+        <button onclick="getParticipantNames()">Next</button>
+    </div>
+    <div id="participantNames" style="display: none;"></div>
+    <div id="tabs"></div>
+    <button id="saveButton" style="display: none;" onclick="saveData()">Save</button>
+
+    <script src="scripts.js"></script>
+    <script>
+        // JavaScript for Start New Auction Button
+        function startNewAuction() {
+            localStorage.removeItem('auctionData');
+            location.reload(); // Reload the page to reset the auction
+        }
+     function changeBackgroundColor() {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        // Change background color every 5 seconds
+        setInterval(changeBackgroundColor, 5000);
+    </script>
+</body>
+</html>

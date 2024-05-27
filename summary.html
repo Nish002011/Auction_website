@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction Summary</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="summary-heading">Auction Summary</h1>
+    <div id="summary"></div>
+    <button id="printButton" onclick="window.print()">Print</button>
+    <button id="goToAuctionButton" onclick="goToAuctionPage()">Go to Auction</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const auctionData = JSON.parse(localStorage.getItem('auctionData'));
+            const summaryDiv = document.getElementById('summary');
+
+            auctionData.forEach(participant => {
+                const participantDiv = document.createElement('div');
+                participantDiv.className = 'participant-summary';
+                participantDiv.innerHTML = `
+                    <h2 class="participant-name">${participant.name}</h2>
+                    <div class="summary-section">
+                        <h3>Captain:</h3>
+                        <input type="text" class="captain-input" value="${participant.captain || ''}" placeholder="Enter captain's name">
+                    </div>
+                    <div class="summary-section">
+                        <h3>Vice Captain:</h3>
+                        <input type="text" class="vice-captain-input" value="${participant.viceCaptain || ''}" placeholder="Enter vice captain's name">
+                    </div>
+                    <div class="summary-section">
+                        <h3>Extra Players:</h3>
+                        <textarea class="extra-players-input" placeholder="Enter extra players">${participant.extraPlayers || ''}</textarea>
+                    </div>
+                    <div class="category">
+                        <h3>All-Rounder</h3>
+                        <ul class="player-list">${participant.allrounder.map(player => `<li>${player.name}: ₹${player.price.toFixed(2)}</li>`).join('')}</ul>
+                    </div>
+                    <div class="category">
+                        <h3>Batsman</h3>
+                        <ul class="player-list">${participant.batsman.map(player => `<li>${player.name}: ₹${player.price.toFixed(2)}</li>`).join('')}</ul>
+                    </div>
+                    <div class="category">
+                        <h3>Bowler</h3>
+                        <ul class="player-list">${participant.bowler.map(player => `<li>${player.name}: ₹${player.price.toFixed(2)}</li>`).join('')}</ul>
+                    </div>
+                    <div class="category">
+                        <h3>Wicketkeeper</h3>
+                        <ul class="player-list">${participant.wicketkeeper.map(player => `<li>${player.name}: ₹${player.price.toFixed(2)}</li>`).join('')}</ul>
+                    </div>
+                    <div class="total-amount">Total Amount: ₹${participant.totalAmount.toFixed(2)}</div>
+                `;
+                summaryDiv.appendChild(participantDiv);
+            });
+        });
+
+      function goToAuctionPage() {
+            window.location.href = 'index.html'; // Redirect to the auctions page
+            window.location.hash = '#setup'; // Scroll to the auction setup section
+        }
+    </script>
+</body>
+</html>
+
+
